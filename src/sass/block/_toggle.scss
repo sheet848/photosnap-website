@@ -1,0 +1,71 @@
+
+.toggle-container {
+	display          : inline-flex;
+	align-items      : center;
+	gap              : 1.5ch;
+	background-color : transparent !important;
+
+	p {
+		cursor      : pointer;
+		font-weight : var(--fw-bold, bold);
+	}
+
+	p[data-active='false'] {
+		opacity : 0.6;
+	}
+}
+
+.toggle {
+	--_size            : var(--size, 0.65em);
+	--_block-size      : 2.5em;
+	--_inline-size     : var(--inline-size, 5em);
+	--_handle-size     : calc(var(--_block-size) / 1.4);
+	--_max-inline-size : max(var(--_inline-size), var(--_block-size) * 1.5);
+	--_inline-space    : calc(var(--_block-size) / 5);
+	--_translate       : 0 0;
+	--_speed           : var(--speed, 200ms);
+	--_bg-default      : var(--toggle-bg-default, var(--bg, var(--clr-neutral-5, #000000)));
+	--_fg-default      : var(--toggle-fg-default, var(--fg, var(--clr-neutral-1, #FFFFFF)));
+	--_bg              : var(--_bg-default);
+	--_fg              : var(--_fg-default);
+
+	&[data-invert-colors='true'] {
+		--_bg-default : var(--toggle-bg-default, var(--fg));
+		--_fg-default : var(--toggle-fg-default, var(--bg));
+	}
+
+	&[aria-pressed='true'][data-toggle-colors='true'] {
+		--_bg-active : var(--toggle-bg-active, var(--_bg-default));
+		--_fg-active : var(--toggle-fg-active, var(--_fg-default));
+		--_bg        : var(--_fg-active);
+		--_fg        : var(--_bg-active);
+	}
+
+	position           : relative;
+	cursor             : pointer;
+	display            : inline-grid;
+	align-items        : center;
+	font-size          : var(--_size);
+	padding            : 0 var(--_inline-space);
+	inline-size        : var(--_max-inline-size);
+	block-size         : var(--_block-size);
+	background-color   : var(--_bg) !important;
+	border-radius      : 100vmax;
+	border             : none;
+	transition         : background-color var(--_speed) ease-in-out;
+
+	&[aria-pressed='true'] {
+		--_translate : calc(var(--_max-inline-size) - var(--_handle-size) - (var(--_inline-space) * 2)) 0;
+	}
+
+	&__handle {
+		display          : grid;
+		place-items      : center;
+		inline-size      : var(--_handle-size);
+		aspect-ratio     : 1;
+		border-radius    : 50%;
+		background-color : var(--_fg) !important;
+		translate        : var(--_translate);
+		transition       : translate var(--_speed) ease-in-out, background-color var(--_speed) ease-in-out;
+	}
+}

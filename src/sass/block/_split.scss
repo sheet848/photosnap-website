@@ -1,0 +1,27 @@
+
+.split {
+	@media (width > $width-md) {
+		block-size : 37.5rem;
+	}
+
+	&__content {
+		padding-inline  : var(--space-4);
+		padding-block   : var(--space-7);
+		max-inline-size : var(--measure, 37.5rem);
+
+		@media (width > $width-md) {
+			padding : var(--space-6);
+		}
+	}
+
+	picture {
+		block-size  : inherit;
+		inline-size : 100%;
+		object-fit  : cover;
+
+		@media (width <= $width-md) {
+			order        : -1;
+			aspect-ratio : 16 / 9;
+		}
+	}
+}

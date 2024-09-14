@@ -1,0 +1,47 @@
+
+[data-zpattern-first='media'].zpattern {
+
+	&__block &__content,
+	& > div > div {
+		order : 2;
+	}
+
+	&__block:nth-child(even) &__content,
+	& > div:nth-child(even) > div {
+		@media (width > $width-md) {
+			order : 0;
+		}
+	}
+}
+
+[data-zpattern-first='content'].zpattern {
+	&__block &__content,
+	& > div > div {
+		order : 2;
+
+		@media (width > $width-md) {
+			order : 0;
+		}
+	}
+
+	&__block:nth-child(even) &__content,
+	& > div:nth-child(even) > div {
+		@media (width > $width-md) {
+			order : 2;
+		}
+	}
+}
+
+[data-zcolumn-first='content'].zpattern {
+	&__block &__content,
+	& > div > div {
+		order : 0;
+	}
+}
+
+[data-zcolumn-first='media'].zpattern {
+	&__block &__content,
+	& > div > div {
+		order : 2;
+	}
+}

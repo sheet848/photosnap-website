@@ -1,0 +1,9 @@
+
+.wrapper {
+	inline-size   : var(--body-size);
+	margin-inline : auto;
+}
+
+[data-max-wrapper="true"].wrapper {
+	inline-size: var(--body-max-size);
+}

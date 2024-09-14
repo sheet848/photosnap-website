@@ -1,0 +1,7 @@
+
+.icon {
+	--_fg       : var(--icon-fg, inherit);
+	color       : var(--_fg);
+	fill        : CurrentColor;
+	flex-shrink : 0;
+}

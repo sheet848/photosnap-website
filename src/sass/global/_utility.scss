@@ -1,0 +1,145 @@
+@use '../abstracts/modules/generator';
+@use '../abstracts/modules/math';
+
+:root {
+	@include generator.all((
+			'colors' : (
+					'src' : ('neutral' : (hsl(0, 0%, 90%))),
+					'tints' : (100%),
+					'shades' : (30%, 60%, 100%),
+			),
+			'font-types' : (
+					'base' : 0.625rem,
+					'ratio' : 1.250,
+					'length' : 5,
+					'preserve' : 4,
+					'break-at' : 'min',
+					'breakpoints' : (
+							'48em' : (
+									'base' : 0.825rem,
+							),
+					),
+			),
+			'space-types' : (
+					'base' : 0.5rem,
+					'ratio' : 'perfect-fourth',
+					'length' : 8,
+			),
+			'fluid-space-types' : (
+					'base' : ('min': 0.5rem, 'max': 0.75rem),
+					'ratio' : ('min': 'minor-third', 'max': 'perfect-fourth'),
+					'length' : 10,
+			),
+			'utilities' : (
+					'src' : (
+							generator.$font-weights,
+							generator.$line-heights,
+							generator.$measures,
+							generator.$text-align,
+							generator.$align-content,
+							generator.$justify-content,
+							generator.$align-items,
+							generator.$justify-items,
+							generator.$align-self,
+							generator.$justify-self,
+							generator.$directions,
+							generator.$displays,
+					)
+			))
+	);
+	--ff-primary    : 'DM Sans', sans-serif;
+	--ff-body       : var(--ff-primary);
+	--ff-heading    : var(--ff-primary);
+	--body-space    : clamp(var(--space-4), 5.68vw + -0.13rem, var(--space-8));
+	--body-size     : min(100% - var(--body-space) * 2, 69.375rem);
+	--body-max-size : min(100%, 128rem);
+}
+
+:where([class*='align'], [class*='direction'], [class*='justify']) {
+	display : grid;
+}
+
+.sr-only {
+	position    : absolute;
+	overflow    : hidden;
+	margin      : -1px;
+	padding     : 0;
+	width       : 1px;
+	height      : 1px;
+	white-space : nowrap;
+	clip        : rect(0, 0, 0, 0);
+	border      : 0;
+}
+
+.text-uppercase {
+	text-transform : uppercase;
+}
+
+.image-darker {
+	--_opacity             : var(--image-darker-opacity, 1);
+	--_transition-duration : 300ms;
+	--_transition-timing   : ease-out;
+	position               : relative;
+
+	&::before {
+		content          : '';
+		pointer-events   : none;
+		position         : absolute;
+		inset            : 0;
+		z-index          : 1;
+		background-image : linear-gradient(0deg, rgba(0, 0, 0, 0.8) 35%, rgba(0, 0, 0, 0));
+		transition       : opacity var(--_transition-duration) var(--_transition-timing);
+		opacity          : var(--_opacity);
+	}
+
+	a:where(:hover, :focus-visible):has(&) & {
+		--_opacity : 0.75;
+	}
+}
+
+.image-darker\/\/below-md {
+	@extend .image-darker;
+	@media (width <= $width-md) {
+		--_opacity : 0;
+	}
+}
+
+.divide {
+	--_fg            : var(--fg, var(--clr-neutral-5, #000000));
+	block-size       : 1px;
+	inline-size      : 100%;
+	background-color : var(--_fg);
+	opacity          : 0.2;
+}
+
+*:has( > [class*='pattern']) {
+	position : relative;
+}
+
+.pattern-line {
+	--_block-start   : 0;
+	--_block-end     : auto;
+	--_inline-start  : 0;
+	--_inline-end    : auto;
+	--_translate-x   : 0;
+	--_translate-y   : 0;
+	--_inline-size   : 100%;
+	--_thickness     : 0.3rem;
+	--_length        : 100%;
+	z-index          : 99;
+	pointer-events   : none;
+	box-sizing       : content-box;
+	padding-inline   : inherit;
+	position         : absolute;
+	inset            : var(--_block-start) var(--_inline-end) var(--_block-end) var(--_inline-start);
+	translate        : var(--_translate-x) var(--_translate-y);
+	block-size       : var(--_length);
+	inline-size      : var(--_thickness);
+	background-image : linear-gradient(26.57deg, #FFC593 0%, #BC7198 43.29%, #5A77FF 83.33%);
+	background-clip  : content-box;
+
+	&[data-direction='horizontal'] {
+		block-size  : var(--_thickness);
+		inline-size : var(--_length);
+	}
+}

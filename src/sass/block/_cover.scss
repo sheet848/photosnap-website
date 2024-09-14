@@ -1,0 +1,31 @@
+@use '../abstracts/modules/math';
+
+.cover {
+	@media (width <= $width-md) {
+		display : block !important;
+	}
+
+	&__container {
+		block-size : 100%;
+
+		@media (width > $width-md) {
+			width : math.clamped(29.1875rem, 52.112rem, 82.125em, $width-xxl);
+		}
+	}
+
+	&__content {
+		padding-inline  : var(--space-4);
+		padding-block   : var(--space-7);
+		max-inline-size : var(--measure, 37.5rem);
+
+		@media (width > $width-md) {
+			padding : var(--space-6);
+		}
+	}
+
+	picture {
+		@media (width <= $width-md) {
+			aspect-ratio : 16 / 9;
+		}
+	}
+}

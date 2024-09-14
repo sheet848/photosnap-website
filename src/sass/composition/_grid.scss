@@ -1,0 +1,54 @@
+.grid {
+	--_measure            : var(--measure, #{$measure});
+
+	inline-size           : 100%;
+	display               : grid;
+	grid-template-columns : repeat(auto-fit, minmax(min(var(--_measure, #{$measure}), 100%), 1fr));
+}
+
+[data-columns='robust'].grid {
+	--_columns            : 1;
+	grid-template-columns : repeat(var(--_columns), 1fr);
+
+	@media (width > $width-sm) {
+		--_columns : var(--_cols-at-sm);
+	}
+
+	@media (width > $width-lg) {
+		--_columns : var(--_cols-at-md);
+	}
+
+	@media (width > $width-xxl) {
+		--_columns : var(--_cols-at-lg);
+	}
+
+	&:has( > :last-child:nth-child(2n)) {
+		--_cols-at-sm    : 1;
+		--_cols-at-md    : 2;
+		--_cols-at-lg    : 2;
+	}
+
+	&:has( > :last-child:nth-child(3n)) {
+		--_cols-at-sm    : 1;
+		--_cols-at-md    : 3;
+		--_cols-at-lg    : 3;
+	}
+
+	&:has( > :last-child:nth-child(4n)) {
+		--_cols-at-sm    : 2;
+		--_cols-at-md    : 4;
+		--_cols-at-lg    : 4;
+	}
+
+	&:has( > :last-child:nth-child(6)) {
+		--_cols-at-sm    : 2;
+		--_cols-at-md    : 3;
+		--_cols-at-lg    : 3;
+	}
+
+	&:has( > :last-child:nth-child(8n)) {
+		--_cols-at-sm    : 2;
+		--_cols-at-md    : 4;
+		--_cols-at-lg    : 8;
+	}
+}

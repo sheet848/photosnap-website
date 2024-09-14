@@ -1,0 +1,233 @@
+@charset "UTF-8";
+@use 'sass:math';
+@use 'variables' as *;
+
+$font-weights    : (
+		'utils' : 'both',
+		'utils-property' : 'font-weight',
+		'fw-regular' : 400,
+		'fw-medium' : 500,
+		'fw-bold' : 700,
+) !default;
+
+$text-align     : (
+		'utils' : 'class',
+		'utils-property' : 'text-align',
+		'breakpoints' : auto,
+		'break-at' : 'both',
+		'text-start' : 'start',
+		'text-center' : 'center',
+		'text-end' : 'end',
+) !default;
+
+$align-content   : (
+		'utils' : 'class',
+		'utils-property' : 'align-content',
+		'breakpoints' : auto,
+		'break-at' : 'min',
+		'align-content-center' : 'center',
+		'align-content-start' : 'start',
+		'align-content-end' : 'end',
+		'align-content-between' : 'space-between',
+) !default;
+
+$justify-content : (
+		'utils' : 'class',
+		'utils-property' : 'justify-content',
+		'breakpoints' : auto,
+		'break-at' : 'min',
+		'justify-content-center' : 'center',
+		'justify-content-start' : 'start',
+		'justify-content-end' : 'start',
+		'justify-content-between' : 'space-between',
+) !default;
+
+$align-items     : (
+		'utils' : 'class',
+		'utils-property' : 'align-items',
+		'breakpoints' : auto,
+		'break-at' : 'min',
+		'align-items-center' : 'center',
+		'align-items-start' : 'start',
+		'align-items-end' : 'end',
+) !default;
+
+$justify-items   : (
+		'utils' : 'class',
+		'utils-property' : 'justify-items',
+		'breakpoints' : auto,
+		'break-at' : 'min',
+		'justify-items-center' : 'center',
+		'justify-items-start' : 'start',
+		'justify-items-end' : 'end',
+) !default;
+
+$align-self     : (
+		'utils' : 'class',
+		'utils-property' : 'align-self',
+		'breakpoints' : auto,
+		'break-at' : 'min',
+		'align-self-center' : 'center',
+		'align-self-start' : 'start',
+		'align-self-end' : 'end',
+) !default;
+
+$justify-self   : (
+		'utils' : 'class',
+		'utils-property' : 'justify-self',
+		'breakpoints' : auto,
+		'break-at' : 'min',
+		'justify-self-center' : 'center',
+		'justify-self-start' : 'start',
+		'justify-self-end' : 'end',
+) !default;
+
+
+$directions      : (
+		'utils' : 'class',
+		'utils-property' : 'grid-auto-flow',
+		'breakpoints' : auto,
+		'break-at' : 'both',
+		'direction-row' : 'column',
+		'direction-column' : 'row',
+) !default;
+
+$displays        : (
+		'utils' : 'class',
+		'utils-property' : 'display',
+		'breakpoints' : auto,
+		'break-at' : 'both',
+		'hide' : 'none',
+) !default;
+
+$letter-spacings : (
+		'utils' : 'both',
+		'utils-property' : 'letter-spacing',
+		'letter-spacing-1' : -0.05em,
+		'letter-spacing-2' : -0.01em,
+		'letter-spacing-3' : 0.05em,
+		'letter-spacing-4' : 0.075em,
+		'letter-spacing-5' : 0.1em,
+) !default;
+
+$line-heights    : (
+		'line-height-1' : 1,
+		'line-height-3' : 1.5,
+		'line-height-title' : calc(2px + 2ex + 2px),
+) !default;
+
+$measures        : (
+		'utils' : 'both',
+		'utils-property' : '--measure',
+		'breakpoints' : auto,
+		'break-at' : 'min',
+		'measure-1' : 12ch,
+		'measure-2' : 15ch,
+		'measure-3' : 35ch,
+		'measure-4' : 43ch,
+		'measure-5' : 48ch,
+		'measure-6' : 72ch,
+		'measure-7' : 82ch,
+) !default;
+
+$radius          : (
+		'radius-1 ' : 0.2rem,
+		'radius-2 ' : 0.5rem,
+		'radius-3 ' : 1rem,
+		'radius-4 ' : 2rem,
+		'radius-5 ' : 4rem,
+		'radius-6 ' : 6rem,
+		'radius-7 ' : 8rem,
+		'radius-round' : 50%,
+		'radius-pill' : 100vmax,
+) !default;
+
+$shadows         : (
+		'utils' : 'both',
+		'utils-property' : 'box-shadow',
+		'shadow-color' : 220 3% 15%,
+		'shadow-strength' : 2%,
+		'shadow-2' : '0 -1px 2px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)), 0 2px 1px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)), 0 5px 5px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)), 0 10px 10px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 4%)), 0 20px 20px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 5%)), 0 40px 40px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 7%))',
+		'shadow-3' : '0 20px 30px -20px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)), 0 3px 2px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)), 0 7px 5px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)), 0 12px 10px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 4%)), 0 22px 18px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 5%)), 0 41px 33px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 6%)), 0 100px 80px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 7%))',
+) !default;
+
+$breakpoints     : (
+	//'xxs': $width-xxs,
+		'xs': $width-xs,
+		'sm': $width-sm,
+		'md': $width-md,
+		'lg': $width-lg,
+		'xl': $width-xl,
+		'xxl': $width-xxl,
+) !default;
+
+//////////////////////
+//// Private maps ////
+//////////////////////
+$ratios          : (
+		'minor-second' : 1.067,
+		'major-second': 1.125,
+		'minor-third' : 1.200,
+		'major-third' : 1.250,
+		'perfect-fourth' : 1.333,
+		'augmented fourth' : 1.414,
+		'perfect-fifth' : 1.500,
+		'golden-ratio' : 1.618
+);
+
+$suffixes        : (
+		'nato' : (
+				'alfa', 'bravo', 'charlie', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', 'india',
+				'juliett', 'kilo', 'lima', 'mike', 'november', 'oscar', 'papa', 'quebec', 'romeo',
+				'sierra', 'tango', 'uniform', 'victor', 'whiskey', 'xray', 'yankee', 'zulu'
+		),
+		'roman' : (
+				'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X',
+				'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX',
+		),
+		'priority': (
+				'primary', 'secondary', 'tertiary', 'quaternary', 'quinary', 'senary', 'septenary', 'octonary', 'nonary', 'denary'
+		),
+		'color-adjectives' : (
+				'higher-values' : (
+						'dark', 'darker', 'darkest'
+				),
+				'lower-values': (
+						'light', 'lighter', 'lightest'
+				),
+		),
+		'size' : (
+				'higher-values' : (
+						'big', 'large', 'huge', 'giant', 'mega'
+				),
+				'lower-values': (
+						'medium', 'small', 'tiny', 'micro', 'atomic'
+				),
+		),
+		'size-shorted' : (
+				'higher-values' : (
+						'lg', 'xl', 'xxl',
+				),
+				'lower-values': (
+						'md', 'sm', 'xs', 'xxs'
+				),
+		),
+		'size-adjectives' : (
+				'higher-values' : (
+						'big', 'bigger', 'biggest', 'large', 'larger', 'largest', 'huge', 'giant', 'mega'
+				),
+				'lower-values': (
+						'medium', 'small', 'smaller', 'smallest', 'tiny', 'tinier', 'tiniest', 'micro', 'atomic'
+				),
+		),
+		'size-w-number' : (
+				'higher-values' : (
+						'big', 'big-2', 'big-3', 'large', 'large-2', 'large-3',
+						'huge', 'huge-2', 'huge-3', 'giant', 'giant-2', 'giant-3', 'mega', 'mega-2', 'mega-3',
+				),
+				'lower-values': (
+						'medium', 'small', 'small-2', 'small-3', 'tiny', 'tiny-2', 'tiny-3',
+						'micro', 'micro-2', 'micro-3', 'atomic', 'atomic-2', 'atomic-3',
+				),
+		),
+);

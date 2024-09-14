@@ -1,0 +1,33 @@
+.stack {
+	display         : grid;
+
+	& > * {
+		margin-block : 0;
+	}
+
+	& > *:not(:where(.sr-only, [class*='hide'], [class*='pattern'])) + * {
+		--_space           : var(--space, var(--space-stack, #{$space}));
+		margin-block-start : var(--_space);
+		--space         : initial;
+	}
+}
+
+[data-stack-first='true'].stack {
+	& > *:first-child {
+		--_space           : var(--space, var(--space-stack, #{$space}));
+		margin-block-start : var(--_space);
+		--space         : initial;
+	}
+}
+
+[data-inherit-space='true'].stack {
+	& > *:not(:where(.sr-only, [class*='hide'])) + * {
+		--space         : inherit;
+	}
+}
+
+[data-stack-first='true'][data-inherit-space='true'].stack {
+	& > *:first-child {
+		--space         : inherit;
+	}
+}

@@ -1,0 +1,36 @@
+:where([class*='title-'], p) {
+	--_measure      : var(--measure, 72ch);
+
+	max-inline-size : var(--_measure);
+}
+
+[class*='title-'] {
+	font-weight : var(--fw-bold);
+	line-height : var(--line-height-title);
+}
+
+
+.title-1 {
+	font-size      : var(--fs-1);
+	letter-spacing : 0.1em;
+}
+
+.title-2 {
+	font-size : var(--fs-2);
+	letter-spacing : 0.1em;
+}
+
+.title-3 {
+	font-size : var(--fs-3);
+}
+
+.title-4 {
+	font-size : var(--fs-4);
+
+}
+
+.title-5 {
+	font-size      : var(--fs-5);
+	letter-spacing : 0.1em;
+	text-transform : uppercase;
+}

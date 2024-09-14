@@ -1,0 +1,47 @@
+
+.footer-site {
+	padding-block: var(--space);
+
+	&__container {
+		display: grid;
+		grid-template-areas:
+				"logo"
+				"socials"
+				"nav"
+				"btn"
+				"copyright";
+
+		@media (width > $width-md) {
+			grid-template-areas:
+					"logo btn"
+					"nav ."
+					"socials copyright"
+		}
+
+		@media (width > $width-lg) {
+			grid-template-areas:
+					"logo nav btn"
+					"socials copyright copyright"
+		}
+	}
+
+	.logo {
+		grid-area: logo;
+	}
+
+	.btn {
+		grid-area: btn;
+	}
+
+	.copyright {
+		grid-area: copyright;
+	}
+
+	.navigation-footer {
+		grid-area: nav;
+	}
+
+	.navigation-socials {
+		grid-area: socials;
+	}
+}

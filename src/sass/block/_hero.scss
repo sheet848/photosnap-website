@@ -1,0 +1,21 @@
+.hero {
+	:is(& .split, .cover) {
+		@media (width > $width-md) {
+			block-size : 40.625rem;
+		}
+	}
+
+	:has(picture > [height="490"]) {
+		@media (width > $width-md) {
+			block-size : 30.625rem;
+		}
+	}
+
+	picture {
+		object-fit : cover;
+
+		@media (width <= $width-md) {
+			aspect-ratio : 16 / 9;
+		}
+	}
+}

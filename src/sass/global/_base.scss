@@ -1,0 +1,54 @@
+
+body {
+	--fg             : var(--clr-neutral-5, #FFFFFF);
+	--bg             : var(--clr-neutral-1, #000000);
+
+	font-family      : var(--ff-body);
+	font-size        : var(--fs-2);
+	font-weight      : var(--fw-regular);
+	line-height      : var(--line-height-3);
+	color            : var(--fg);
+	background-color : var(--bg);
+}
+
+body:has(nav[data-open='true']) {
+	@media (width <= $width-md) {
+		overflow : hidden;
+	}
+}
+
+:where(a, button, input, select) {
+	--_outline-size  : var(--outline-size, max(1px, 0.15em));
+	--_outline-style : var(--outline-style, solid);
+	--_outline-fg    : var(--outline-fg, currentColor);
+
+	text-decoration  : none;
+	color            : inherit;
+
+	&:focus-visible {
+		outline        : var(--_outline-size) var(--_outline-style) var(--_outline-fg);
+		outline-offset : calc(var(--_outline-size) * 1 + 1px);
+	}
+}
+
+picture img {
+	aspect-ratio : inherit;
+	block-size   : inherit;
+	inline-size  : inherit;
+	object-fit   : inherit;
+}
+
+nav a {
+	transition             : opacity 150ms ease-out;
+
+	@media (hover : hover) {
+		&:where(:hover, :focus-visible) {
+			opacity : 0.7;
+		}
+	}
+}
+
+section {
+	padding-block: var(--space);
+}
+
