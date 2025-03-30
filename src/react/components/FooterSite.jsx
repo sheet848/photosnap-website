@@ -21,9 +21,9 @@ export default function FooterSite() {
                 <ul role="list" className="direction-row justify-content-center">
                     <li><Button href="" type="icon" icon={{name: "mkk", size: "1.5em"}} attributes={{"aria-label": "author's website"}}/></li>
                     <li><Button href="https://github.com/sheet848/" type="icon" icon={{name: "github", size: "1.35em"}} attributes={{"aria-label": "github"}}/></li>
-                    <li><Button href="https://www.linkedin.com/in/martin-kam%C3%ADr-2967aa222/" type="icon" icon={{name: "linkedin", size: "1.35em"}} attributes={{"aria-label": "linkedin"}}/></li>
+                    <li><Button href="https://www.linkedin.com/" type="icon" icon={{name: "linkedin", size: "1.35em"}} attributes={{"aria-label": "linkedin"}}/></li>
                     <li><Button href="https://www.facebook.com/" type="icon" icon={{name: "facebook", size: "1.35em"}} attributes={{"aria-label": "facebook"}}/></li>
-                    <li><Button href="https://www.instagram.com//" type="icon" icon={{name: "instagram", size: "1.35em"}} attributes={{"aria-label": "instagram"}}/></li>
+                    <li><Button href="https://www.instagram.com/" type="icon" icon={{name: "instagram", size: "1.35em"}} attributes={{"aria-label": "instagram"}}/></li>
                 </ul>
             </nav>
             <Button to="/coming-soon" type="link" utils="justify-content-center justify-self-end//md">Get an invite</Button>
