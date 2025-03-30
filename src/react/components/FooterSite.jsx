@@ -19,15 +19,15 @@ export default function FooterSite() {
             </nav>
             <nav id="navigation-socials" aria-label="navigation socials" className="navigation-socials">
                 <ul role="list" className="direction-row justify-content-center">
-                    <li><Button href="https://martinkamir.com/" type="icon" icon={{name: "mkk", size: "1.5em"}} attributes={{"aria-label": "author's website"}}/></li>
-                    <li><Button href="https://github.com/Martin-K-Kamir/" type="icon" icon={{name: "github", size: "1.35em"}} attributes={{"aria-label": "github"}}/></li>
+                    <li><Button href="" type="icon" icon={{name: "mkk", size: "1.5em"}} attributes={{"aria-label": "author's website"}}/></li>
+                    <li><Button href="https://github.com/sheet848/" type="icon" icon={{name: "github", size: "1.35em"}} attributes={{"aria-label": "github"}}/></li>
                     <li><Button href="https://www.linkedin.com/in/martin-kam%C3%ADr-2967aa222/" type="icon" icon={{name: "linkedin", size: "1.35em"}} attributes={{"aria-label": "linkedin"}}/></li>
                     <li><Button href="https://www.facebook.com/" type="icon" icon={{name: "facebook", size: "1.35em"}} attributes={{"aria-label": "facebook"}}/></li>
                     <li><Button href="https://www.instagram.com//" type="icon" icon={{name: "instagram", size: "1.35em"}} attributes={{"aria-label": "instagram"}}/></li>
                 </ul>
             </nav>
             <Button to="/coming-soon" type="link" utils="justify-content-center justify-self-end//md">Get an invite</Button>
-            <p className="[ copyright ] [ fs-1 fg-neutral-3 justify-self-end//md text-end//md ]">Challenge by Frontend Mentor. Coded by Martin Kamír.<br/>Copyright 2023. All Rights Reserved</p>
+            <p className="[ copyright ] [ fs-1 fg-neutral-3 justify-self-end//md text-end//md ]">Challenge by Frontend Mentor. Coded by Sheetal Naik.<br/>Copyright 2024. All Rights Reserved</p>
         </div>
     </footer>);
 };
